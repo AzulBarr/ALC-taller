@@ -20,19 +20,23 @@ def traza(a):
     else:
         print('la matriz no es cuadrada')
         return -9999
-      
+
+#revisar
 def esSimetrica(a):
+    res = True
     if esCuadrada(a):
-        res = True
         nlin, ncol = a.shape
-        for i in range(nlin):
-            for j in range(ncol):
-                if a[i,j] != a[j,i]:
-                    res = False
-        return res
+        i = 0
+        while i < nlin and res:
+            j = i + 1
+            while j < ncol and res:
+                res = a[i,j] == a[j,i]
+                j += 1
+            i += 1
     else:
         print('la matriz no es cuadrada')
-        return -9999 
+        res = False
+    return res 
 
 # EN OTRO ARCHIVO
 import funciones
