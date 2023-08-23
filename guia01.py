@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 1 + 3
 a = 7
@@ -23,3 +24,14 @@ print(a[ind, ind[:,None]]) #preguntar
 # NUMEROS COMPLEJOS
 im1 = 1j*1j
 im2 = (1+2j)*1j
+
+a = -3/2
+b = 11/2
+c = -3
+xx = np.array([1,2,3])
+yy = np.array([1,2,0])
+x = np.linspace(0,4,100)
+f = lambda t: a* t**2 + b * t + c
+plt.plot(xx,yy, 'o', color = 'purple')
+plt.plot(x, f(x))
+plt.show()
