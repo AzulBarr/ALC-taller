@@ -1,4 +1,3 @@
-
 # Aritmética de punto flotante 
 ## Representacion de numeros en una computadora
 ### Naturales
@@ -9,6 +8,8 @@ Primer bit 0/1 para decir si es positivo o negativo.
 Representacion de numeros con coma separando la parte entera y la parte decimal.
 ### Reales
 Los numeros con decimales infinitos se separan en 3 partes: signo, exponente y mantisa. A los exponentes se le restan 127, los exponentes menores a 127 son negativos.
+### Complejos
+Se representan como dos números reales. El imaginario i se pone como j.
 
 ---
 ## Error numérico
@@ -94,4 +95,21 @@ format(0.1, '.22f')
 import numpy as np
 # muestra la distancia de un número al siguiente, hay menos espacio para los números cercanos a 0.
 np.spacing(202)
+```
+## Complejos
+
+```python
+c1 = 1 + 2j
+real = c1.real
+imaginaria = c1.imag
+
+def conjugado(c):
+    return c.real - c.imag * 1j
+
+def esReal(c):
+    return conjugado(c) == c
+
+def esImaginario(c):
+    return conjugado(c) != c and c.real == 0
+
 ```
