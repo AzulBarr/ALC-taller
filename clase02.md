@@ -48,3 +48,50 @@ def igualdad(n1,n2):
     return abs(n1 - n2) < ep
 ```
 > True
+
+## Características de float 64
+
+* Máximo número flotante que puede representar Python: 1.7976931348623157e+308 
+```python
+np.finfo(float).max
+```
+* Mínimo flotante positivo [normalizado]: 2.2250738585072014e-308 
+```python
+np.finfo(float).tiny
+```
+* Mínimo flotante positivo [subnormal]: 5e-324 
+```python
+np.nextafter(0., 1.)
+```
+* Epsilon de máquina: 2.220446049250313e-16 = spacing(1)
+```python
+# El épsilon de máquina es el número de máquina más chico tal que 1 + eps es distinto de 1
+np.finfo(float).eps
+
+# Dem:
+eps = np.finfo(np.double).eps
+print('1 + ε =', 1 + eps)
+print('1 + ε/2 =', 1 + eps/2,'\n')
+
+print('¿1 + ε = 1?', 1 + eps == 1)
+print('¿1 + ε/2 = 1?', 1 + eps/2 == 1)
+```
+> 1 + ε = 1.0000000000000002 
+
+>1 + ε/2 = 1.0 
+
+>¿1 + ε = 1? False
+
+>¿1 + ε/2 = 1? True
+
+## Funciones
+
+```python
+# muestra 22 cifras significativas
+format(0.1, '.22f')
+```
+```python
+import numpy as np
+# muestra la distancia de un número al siguiente, hay menos espacio para los números cercanos a 0.
+np.spacing(202)
+```
